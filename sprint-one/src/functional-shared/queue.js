@@ -34,15 +34,4 @@ var queueMethods = {
     }
 };
 
-var extend  = function(obj) {
-  for(var i = 1; i < arguments.length;i++){
-    for(var defKey in arguments[i]){
-      if (obj[defKey] === undefined){
-        obj[defKey] = arguments[i][defKey];
-      }
-    }
-  }
-  return obj;
-};
-
 

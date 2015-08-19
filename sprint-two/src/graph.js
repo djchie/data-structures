@@ -4,6 +4,8 @@
 
 // Instantiate a new graph
 var Graph = function(){
+  this.nodes = [];
+  this.edges = [];
 };
 
 // ------------------------
@@ -44,6 +46,23 @@ Graph.prototype.forEachNode = function(cb){
 /*
  * Complexity: What is the time complexity of the above functions?
  */
+var Node = function(value){
+  var node = {};
 
+  node.value = value;
+
+  return node;
+};
+
+var Edge = function(node1,node2){
+  var edge = {};
+
+  edge.nodes = [];
+
+  edge.nodes.push(node1);
+  edge.nodes.push(node2);
+
+  return edge;
+}
 
 

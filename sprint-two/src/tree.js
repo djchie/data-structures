@@ -3,24 +3,29 @@ var Tree = function(value){
   newTree.value = value;
 
   // your code here
-  newTree.children = null;  // fix me
-
+  newTree.children = [];  // fix me
+  _.extend(newTree, treeMethods);
   return newTree;
 };
 
-
-  // your code here
-  newTree.children = null;  // fix me
-
-
 var treeMethods = {};
 
+// Complexity: O(1)
 treeMethods.addChild = function(value){
-
+  var childTree = Tree(value);
+  this.children.push(childTree);
 };
 
+// Complexity: O(n)
 treeMethods.contains = function(target){
-
+  var hasValue = false;
+  if (this.value === target) {
+    hasValue = true;
+  }
+  for (var i = 0; i < this.children.length; i++) {
+    hasValue = hasValue || this.children[i].contains(target);
+  }
+  return hasValue;
 };
 
 

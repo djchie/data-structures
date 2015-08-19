@@ -5,7 +5,7 @@ var Stack = function() {
   var someInstance = {};
   someInstance.storage = {};
 
-  return extend(someInstance, stackMethods);
+  return _.extend(someInstance, stackMethods);
 };
 
 var stackMethods = {
@@ -23,17 +23,6 @@ var stackMethods = {
     return Object.keys(this.storage).length;
   }
 };
-
-var extend  = function(obj) {
-    for(var i = 1; i < arguments.length;i++){
-      for(var defKey in arguments[i]){
-        if (obj[defKey] === undefined){
-          obj[defKey] = arguments[i][defKey];
-        }
-      }
-    }
-    return obj;
-  };
 
 
 
