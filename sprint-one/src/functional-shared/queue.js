@@ -4,7 +4,7 @@ var Queue = function(){
   var someInstance = {};
   someInstance.storage = {};
 
-  return extend(someInstance, queueMethods);
+  return _.extend(someInstance, queueMethods);
 };
 
 var queueMethods = {
@@ -35,14 +35,14 @@ var queueMethods = {
 };
 
 var extend  = function(obj) {
-    for(var i = 1; i < arguments.length;i++){
-      for(var defKey in arguments[i]){
-        if (obj[defKey] === undefined){
-          obj[defKey] = arguments[i][defKey];
-        }
+  for(var i = 1; i < arguments.length;i++){
+    for(var defKey in arguments[i]){
+      if (obj[defKey] === undefined){
+        obj[defKey] = arguments[i][defKey];
       }
     }
-    return obj;
-  };
+  }
+  return obj;
+};
 
 
