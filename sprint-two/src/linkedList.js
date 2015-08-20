@@ -27,15 +27,14 @@ var LinkedList = function(){
   // Complexity: O(n)
   list.contains = function(target){
     var node = list.head;
-    while((node !== null) && (node.value !== target)){
+    var hasTarget = false;
+    while((node !== null) && (node!== undefined)){
+      if (node.value === target) {
+        hasTarget = true;
+      }
       node = node.next;
     }
-    if (node !== null){
-      return true;
-    }
-    else{
-      return false;
-    }
+    return hasTarget;
   };
 
   return list;
