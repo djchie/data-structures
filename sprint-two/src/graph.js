@@ -10,12 +10,14 @@ var Graph = function(){
 
 // ------------------------
 // Add a node to the graph, passing in the node's value.
+// Complexity: O(1)
 Graph.prototype.addNode = function(node){
   this.nodes.push(node);
 };
 
 // ------------------------
 // Return a boolean value indicating if the value passed to contains is represented in the graph.
+// Complexity: O(n)
 Graph.prototype.contains = function(node){
   var hasNode = false;
   for (var i = 0; i < this.nodes.length; i++) {
@@ -28,6 +30,7 @@ Graph.prototype.contains = function(node){
 
 // ------------------------
 // Removes a node from the graph.
+// Complexity: O(n)
 Graph.prototype.removeNode = function(node){
   var index = this.nodes.indexOf(node);
   if (index !== -1) {
@@ -37,6 +40,8 @@ Graph.prototype.removeNode = function(node){
 
 // ------------------------
 // Returns a boolean indicating whether two specified nodes are connected.  Pass in the values contained in each of the two nodes.
+// In respect to nodes as "n", Complexity: O(n^2)
+// In respect to edges as "n", Complexity: O(n)
 Graph.prototype.hasEdge = function(fromNode, toNode){
   var hasEdge = false;
   for (var i = 0; i < this.edges.length; i++) {
@@ -49,6 +54,7 @@ Graph.prototype.hasEdge = function(fromNode, toNode){
 
 // ------------------------
 // Connects two nodes in a graph by adding an edge between them.
+// Complexity: O(1)
 Graph.prototype.addEdge = function(fromNode, toNode){
   var edge = [fromNode, toNode];
   this.edges.push(edge);
@@ -56,6 +62,8 @@ Graph.prototype.addEdge = function(fromNode, toNode){
 
 // ------------------------
 // Remove an edge between any two specified (by value) nodes.
+// In respect to nodes as "n", Complexity: O(n^2)
+// In respect to edges as "n", Complexity: O(n)
 Graph.prototype.removeEdge = function(fromNode, toNode){
   var edge = [fromNode, toNode];
   var index = -1;
@@ -68,6 +76,7 @@ Graph.prototype.removeEdge = function(fromNode, toNode){
 
 // ------------------------
 // Pass in a callback which will be executed on each node of the graph.
+// Complexity: O(n)
 Graph.prototype.forEachNode = function(cb){
   for (var i = 0; i < this.nodes.length; i++) {
     cb(this.nodes[i]);
