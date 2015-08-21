@@ -43,6 +43,7 @@ treeMethods.removeFromParent = function(){
   this.parent = null;
 }
 
+// Complexity: O(n)
 treeMethods.traverse = function(callback){
   if (this.value !== undefined){
     callback(this.value);
