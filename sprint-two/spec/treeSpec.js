@@ -61,4 +61,31 @@ describe('tree', function() {
     expect(parentLessNode.parent).to.equal(null);
   });
 
+  it('should execute a callback on each value in the tree', function() {
+    var array = [];
+    var func = function(value){
+      array.push(value); 
+    };
+    tree.addChild(5);
+    tree.addChild(6);
+    tree.addChild(7);
+    tree.addChild(8);
+    tree.traverse(func);
+    expect(array).to.eql([5,6,7,8]);
+  });
+
+  it('should execute a callback on each value in a nested tree', function() {
+    var array = [];
+    var func = function(value){
+      array.push(value); 
+    };
+    tree.addChild(5);
+    tree.addChild(6);
+    tree.addChild(7);
+    tree.addChild(8);
+    tree.children[0].addChild(9);
+    tree.traverse(func);
+    expect(array).to.eql([5,9,6,7,8]);
+  });
+
 });
