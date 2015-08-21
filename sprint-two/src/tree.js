@@ -30,6 +30,7 @@ treeMethods.contains = function(target){
   return hasValue;
 };
 
+// Complexity: O(n)
 treeMethods.removeFromParent = function(){
   var index = -1;
   for (var i = 0; i < this.parent.children.length; i++) {
