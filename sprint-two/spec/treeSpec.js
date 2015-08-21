@@ -45,17 +45,19 @@ describe('tree', function() {
     tree.addChild(5);
     tree.children[0].addChild(6);
     expect(tree.children[0].children[0].value).to.equal(6);
-    expect(tree.children[0].children[0].parent).to.equal(5);
+    expect(tree.children[0].children[0].parent.value).to.equal(5);
   });
 
   it('should be able to disassociate a tree with its parent by removeFromParent', function() {
     tree.addChild(5);
     tree.children[0].addChild(6);
+    tree.children[0].addChild(3);
     var parentLessNode = tree.children[0].children[0];
     expect(tree.children[0].children[0].value).to.equal(6);
-    expect(tree.children[0].children[0].parent).to.equal(5);
+    expect(tree.children[0].children[1].value).to.equal(3);
+    expect(tree.children[0].children[0].parent.value).to.equal(5);
     tree.children[0].children[0].removeFromParent();
-    expect(tree.children[0].children[0]).not.to.equal(6);
+    expect(tree.children[0].children[0].value).not.to.equal(6);
     expect(parentLessNode.parent).to.equal(null);
   });
 
