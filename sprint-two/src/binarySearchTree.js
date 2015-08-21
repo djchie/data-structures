@@ -6,7 +6,7 @@ var BinarySearchTree = function(value){
   return newBSTree;
 };
 
-// Complexity: O(1)
+// Complexity: O(log(n))
 BinarySearchTree.prototype.insert = function(value){
   if (value < this.value){
     if (this.left === null) {
@@ -23,7 +23,7 @@ BinarySearchTree.prototype.insert = function(value){
   }
 }
 
-// Complexity: O(1)
+// Complexity: O(log(n))
 BinarySearchTree.prototype.contains = function(value){
   var hasValue = false;
   if (value < this.value){
@@ -45,15 +45,27 @@ BinarySearchTree.prototype.contains = function(value){
   return hasValue;
 }
 
-// Complexity: O(1)
-BinarySearchTree.prototype.depthFirstLog = function(value){
-  value(this.value);
+// Complexity: O(log(n))
+BinarySearchTree.prototype.depthFirstLog = function(callback){
+  callback(this.value);
   if (this.left !== null) {
     this.left.depthFirstLog(value);
   }
   if (this.right !== null) {
     this.right.depthFirstLog(value);
   }
+}
+
+// Complexity: O(log(n))
+BinarySearchTree.prototype.breadthFirstLog = function(callback){
+  callback(this.value);
+  if (this.left !== null) {
+    this.left.breadthFirstLog(value);
+  }
+  if (this.right !== null) {
+    this.right.breadthFirstLog(value);
+  }
+
 }
 
 /*
