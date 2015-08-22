@@ -24,4 +24,37 @@ describe('set', function() {
     expect(set.contains("Mel Gibson")).to.equal(false);
   });
 
+  it('should add numbers to a set', function(){
+    set.add(1);
+    set.add(2);
+    set.add(3);
+    set.add(4);
+    expect(set.contains(1)).to.equal(true);
+    expect(set.contains(2)).to.equal(true);
+    expect(set.contains(3)).to.equal(true);
+    expect(set.contains(4)).to.equal(true);
+  });
+
+  it('should remove numbers from a set', function(){
+    set.add(1);
+    set.remove(1);
+    expect(set.contains(1)).to.equal(false);
+  });
+
+  it('should add objects to a set', function(){
+    var objectA = {'name':"Danny Glover"};
+    var objectB = {'name':"Susan Sarandon"}
+    set.add(objectA);
+    set.add(objectB);
+    expect(set.contains(objectA)).to.equal(true);
+    expect(set.contains(objectB)).to.equal(true);
+  });
+
+  it('should remove objects from a set', function(){
+    var object = {'name':"Mel Gibson"};
+    set.add(object);
+    set.remove(object);
+    expect(set.contains(object)).to.equal(false);
+  });
+
 });
