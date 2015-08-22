@@ -50,4 +50,19 @@ describe('binarySearchTree', function() {
     expect(array).to.eql([5,3,6,1,8,7,9]);
   });
 
+  it('should rebalance tree as soon as the max depth is more than twice the minimum depth', function(){
+    var array = [];
+    var func = function(value){ array.push(value); };
+    binarySearchTree.insert(6);
+    binarySearchTree.insert(1);
+    binarySearchTree.insert(10);
+    binarySearchTree.insert(12);
+    binarySearchTree.insert(8);
+    binarySearchTree.insert(9);
+    binarySearchTree.breadthFirstLog(func);
+    expect(array).to.eql([8,5,10,1,6,9,12]);
+    // Test to see if the rebalanced tree is in the correct format
+    // Test to see the new minimum height and maximum height satisfies conditions
+  });
+
 });
