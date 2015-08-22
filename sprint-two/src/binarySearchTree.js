@@ -49,23 +49,28 @@ BinarySearchTree.prototype.contains = function(value){
 BinarySearchTree.prototype.depthFirstLog = function(callback){
   callback(this.value);
   if (this.left !== null) {
-    this.left.depthFirstLog(value);
+    this.left.depthFirstLog(callback);
   }
   if (this.right !== null) {
-    this.right.depthFirstLog(value);
+    this.right.depthFirstLog(callback);
   }
 }
 
 // Complexity: O(log(n))
 BinarySearchTree.prototype.breadthFirstLog = function(callback){
-  callback(this.value);
-  if (this.left !== null) {
-    this.left.breadthFirstLog(value);
-  }
-  if (this.right !== null) {
-    this.right.breadthFirstLog(value);
-  }
+  var queue = [];
+  queue.push(this);
 
+  while(queue.length > 0) {
+    var node = queue.shift();
+    callback(node.value);
+    if (node.left !== null) {
+      queue.push(node.left);
+    }
+    if (node.right !== null) {
+      queue.push(node.right);
+    }
+  }
 }
 
 /*
